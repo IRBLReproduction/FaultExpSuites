@@ -93,15 +93,8 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 > $ sudo apt-get install git <br />
 > $ git clone https://github.com/irblsensitivity/irblsensitivity.git Suits <br />
 
-### Install java and python
-* We used java 8 and python 2.7
-* If you have java and python in your computer, please skip this section.
-> // install java <br />
-> $ sudo apt-get install python-software-properties <br />
-> $ sudo add-apt-repository ppa:webupd8team/java <br />
-> $ sudo apt-get update <br />
-> $ sudo apt-get install oracle-java8-installer <br />
->  <br />
+### Install python
+* We used python 2.7. (If you have python 2.7 in your computer, please skip this section.)
 > // install python <br />
 > $ sudo add-apt-repository ppa:fkrull/deadsnakes <br />
 > $ sudo apt-get update <br />
@@ -181,6 +174,15 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 > Suits/scripts$ python launcher_Tool.py -w NewData_Locus -t Locus <br />
 > Suits/scripts$ python launcher_Tool.py -w NewData_CAMLE -g Apache -p CAMEL <br />
 
+### Install Java
+* All previous techniques are executed in Java Runtime Environment.
+* If you have java in your computer, please skip this section.
+> // install java <br />
+> $ sudo apt-get install python-software-properties <br />
+> $ sudo add-apt-repository ppa:webupd8team/java <br />
+> $ sudo apt-get update <br />
+> $ sudo apt-get install oracle-java8-installer <br />
+>  <br />
 
 ### Install indri
 - To execute BLUiR and AmaLgam, you need to install indri.
