@@ -62,6 +62,7 @@ Each of the archive contains bug reports, bug report repositories that we made, 
 | Previous | SWT | [SWT.tar](https://sourceforge.net/projects/irblsensitivity/files/Previous/SWT.tar) | [https://github.com/eclipse/eclipse.platform.swt](https://github.com/eclipse/eclipse.platform.swt) |
 | Previous | ZXing | [ZXing.tar](https://sourceforge.net/projects/irblsensitivity/files/Previous/ZXing.tar) | [https://github.com/zxing/zxing](https://github.com/zxing/zxing) |
 
+
 ### Top-level Directory Structure
 This is the top-level directory of FaultExpSuits. The directory structure is as follows:
  - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator, AmaLgam, Locus and more. We revised the source codes to output result with same format.
@@ -74,7 +75,6 @@ This is the top-level directory of FaultExpSuits. The directory structure is as 
 
 
 ### Scripts Directory Structure
-We have got all the result of the paper. This scirpts has 5 folders.
 - **repository**: Scripts to prepare the resources to execute each technique.
 - **results**: Scripts to collect the execution results of each technique and export to Excel.
 - **analysis**: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
