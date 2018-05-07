@@ -2,17 +2,6 @@
 FaultExpSuits is a set of collections which includes bug reports and scripts preparing resources for Fault Localization experiment. This documents explains this repository, what we include and how to use this data.
 
 
-### Directory Structure
-This is the top-level directory of FaultExpSuits. The directory structure is as follows:
- - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator, AmaLgam, Locus and more. We revised the source codes to output result with same format.
-    * releases: The executable files and environment settings for each techniques get together here.
- - **analysis**: The execution result of previous techniques which is refind for scripts in forlder "scripts > analysis".
-
- - **scripts**: Python scripts to prepare resources for Fault Localization, to execute previous techniques and to organize the results.
- - **packing.sh**: Shell script to pack resource data per each subject.
- - **unpacking.sh**: Shell script to unpack resource data per each subject.
-
-
 ### Subjects ( Bug and Source Code Repository )
 We used the 5 old subjects and the 46 new subjects in the below table.
 The subjects classified into 6 groups to manage them (The Previous group is old subjects). 
@@ -73,19 +62,28 @@ Each of the archive contains bug reports, bug report repositories that we made, 
 | Previous | SWT | [SWT.tar](https://sourceforge.net/projects/irblsensitivity/files/Previous/SWT.tar) | [https://github.com/eclipse/eclipse.platform.swt](https://github.com/eclipse/eclipse.platform.swt) |
 | Previous | ZXing | [ZXing.tar](https://sourceforge.net/projects/irblsensitivity/files/Previous/ZXing.tar) | [https://github.com/zxing/zxing](https://github.com/zxing/zxing) |
 
+### Top-level Directory Structure
+This is the top-level directory of FaultExpSuits. The directory structure is as follows:
+ - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator, AmaLgam, Locus and more. We revised the source codes to output result with same format.
+    * releases: The executable files and environment settings for each techniques get together here.
+ - **analysis**: The execution result of previous techniques which is refind for scripts in forlder "scripts > analysis".
 
-### Scripts
+ - **scripts**: Python scripts to prepare resources for Fault Localization, to execute previous techniques and to organize the results.
+ - **packing.sh**: Shell script to pack resource data per each subject.
+ - **unpacking.sh**: Shell script to unpack resource data per each subject.
+
+
+### Scripts Directory Structure
 We have got all the result of the paper. This scirpts has 5 folders.
-    * repository: Scripts to prepare the resources to execute each technique.
-    * results: Scripts to collect the execution results of each technique and export to Excel.
-    * analysis: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;We applied Mann-Whitney U test, Pearson correlation and so on.
-    * commons: Scripts to managing subjects and common functions.
-    * utils: Personal libraries for experiments.
+- **repository**: Scripts to prepare the resources to execute each technique.
+- **results**: Scripts to collect the execution results of each technique and export to Excel.
+- **analysis**: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;We applied Mann-Whitney U test, Pearson correlation and so on.
+- **commons**: Scripts to managing subjects and common functions.
+- **utils**: Personal libraries for experiments.
 
 
-
-# How to use this benchmark
+# Getting Started
 All the experiments are executed in Ubuntu 16.04 LTS.
 
 
