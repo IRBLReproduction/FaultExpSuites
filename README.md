@@ -218,46 +218,6 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 > &nbsp; &nbsp; indripath=/usr/local/bin/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<-- edit this value as a the first log of "make install" <br />
 >
 
-
-# Previous Techniques Load on Eclipse
-We changed previous techniques on Eclipse. But we didn't include eclipse environment files (.metadata folder, .project and .classpath file) in each previous techniques folders.
- 
- So, If you want to load these techniques on Eclipse, please follow next sequence.
- 
- - Open Eclipse
- - Make a 'techniques' folder into workplace of Eclipse. Then .metadata folder will be created in 'techniques' folder.
- - On the 'Package Explorer' panel, Open context menu by clicking right mouse button.
- - Select 'Import', Then a pop-up windows will be placed.
- - Except BLUiR project,  choose 'General > Projects from Folder or Archive' item and click 'Next' button.
- - Designate project folder in 'techniques' and click 'Finish' button.
- - Then, the project will be loaded and be shown in the Package Explorer.
- - BLUiR is made as Maven project. So, You should import with 'Maven > Existing Maven Project'. And then, just choose project folder. You don't need to change any other options.
- - Especially BLIA project, need to add library JUnit.
-
-
-
-    - OutputPATH: Set the result path to save output of each technique (ex. u'~/IRBL/expresults/')
-    - JavaOptions: Set the java command options. (ex. '-Xms512m -Xmx4000m')
-    - JavaOptions_Locus: Set the java options for Locus. Because Locus need a large memory, we separated the option. (ex. '-Xms512m -Xmx4000m')
-* The script executes 6 techniques for all subjects.
-* The script basically works for the multiple versions of bug repository and each of the related source codes.
-* Options
-    - -w <work name>: \[necessary\] With this option, users can set the ID for each experiment, and each ID is also used as a directory name to store the execution results of each Technique. Additionally, if the name starts with "Old", this script works for the previous data, otherwise works for the new data.
-    - -g <group name>: A specific group. With this option, the script works for the subjects in the specified group. 
-    - -p <subject name>: A specific subject. To use this option, you should specify the group name. 
-    - -t <technique name>: A specific technique. With this option, the script makes results of specified technique.
-    - -v <version name>: A specific version. With this option, the script works for the specified version of source code.
-    - -s: Single version mode, With this option, the script works for the only latest source code.
-    - -m: With this option, the bug repositories created by combining the text of duplicate bug report pairs are used instead of the normal one.
-
-
-* Examples
-> IRBL/scripts$ python launcher_Tool.py -w NewData <br />
-> IRBL/scripts$ python launcher_Tool.py -w NewDataSingle -s <br />
-> IRBL/scripts$ python launcher_Tool.py -w NewData_Locus -t Locus <br />
-> IRBL/scripts$ python launcher_Tool.py -w NewData_CAMLE -g Apache -p CAMEL <br />
-
-
 # Previous Techniques Load on Eclipse
 We changed previous techniques on Eclipse. But we didn't include eclipse environment files (.metadata folder, .project and .classpath file) in each previous techniques folders.
  
