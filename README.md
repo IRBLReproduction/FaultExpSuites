@@ -1,5 +1,6 @@
-# FaultExpSuits
-FaultExpSuits is a set of collections which includes bug reports and scripts preparing resources for Fault Localization experiment. This documents explains this repository, what we include and how to use this data.
+# FaultExpSuites
+FaultExpSuites is a collection of set of bug reports and git repository for Fault Localization experiment. This collection has 10,017 bug reports collected from 51 Subjects and each bug report is mapped to the source code of the corresponding version. Therefore, we can support your detail experiment as giving this version mapping information. And we also support you that you can experiment with other Subjects as offering scripts used to make this collection.
+This document explains how to use this benchmark to your experiment and how reproduce the result of our paper titled IR-based Bug Localization: Reproducibility Study on the Performance of State-of-the-Art Approaches.
 
 
 ### Subjects ( Bug and Source Code Repository )
