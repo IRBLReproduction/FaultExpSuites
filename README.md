@@ -3,7 +3,7 @@ FaultExpSuites is a collection of set of bug reports and git repository for Faul
 This document explains how to use this benchmark to your experiment and how reproduce the result of our paper titled IR-based Bug Localization: Reproducibility Study on the Performance of State-of-the-Art Approaches.
 
 
-### Subjects ( Bug reports and Source code repositories )
+### Subjects ( Bug and Source Code Repository )
 The below table shows 5 old subjects that used in previous studies and 46 new subjects that we collected more.
 The subjects classified into 6 groups to manage them (The Previous group is old subjects).
 Each of the archive contains bug reports, bug report repositories that we refined, cloned git repository and metadata of them that we made. If you need a recent git repository, please clone again through a link in Git Repository column.
@@ -73,6 +73,13 @@ You can use this data sets following a section "Getting Started"
  - **unpacking.sh**: Shell script to unpack resource data per each subject.
 
 
+
+
+# Getting Started
+This section describes all procedures of use this benchmarks. The procedures include setting experiment environment, creating bug repository and checking out source codes of specific versions.
+We explain all procedures base on Ubuntu 16.04 LTS because all the experiments are executed in this environment.
+
+
 ### Scripts Directory Structure
 - **repository**: Scripts to prepare the resources to execute each technique.
 - **results**: Scripts to collect the execution results of each technique and export to Excel.
@@ -82,15 +89,28 @@ You can use this data sets following a section "Getting Started"
 - **utils**: Personal libraries for experiments.
 
 
-# Getting Started
-All the experiments are executed in Ubuntu 16.04 LTS.
-
-
 ### Clone this repository
 * Clone the repository by using the following command. (We cloned into the "Suites" directory.)
 > $ sudo apt-get update <br />
 > $ sudo apt-get install git <br />
 > $ git clone https://github.com/IRBLReproduction/FaultExpSuites.git Suites <br />
+
+    
+### Download subjects' archives.
+* Download all subjects from the Subjects table and save them in the cloned repository path 
+* In our case, we save it to the Suites/_archives directory.
+* Each subject must be stored in the group directory to which it belongs.
+* Finally, unpacking all archives by using the unpacking.sh script.
+> $ cd Suites <br />
+> Suites$ mkdir _archives <br />
+> Suites$ cd _archives <br />
+> Suites/_archives$ mkdir Apache <br /> 
+> Suites/_archives$ cd Apache <br />
+> Suites/_archives/Apache$ wget -O CAMEL.tar "https://drive.google.com/uc?export=download&id=0B78iVP5pcTfKdEZZZnJrWmZxWjg" <br />
+> ....work recursively.... <br />
+> Suites$ mkdir data <br />
+> Suites$ ./unpacking.sh _archives data <br />
+
 
 ### Install python
 * We used python 2.7. (If you have python 2.7 in your computer, please skip this section.)
@@ -103,23 +123,7 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 ### Install python libraries
 > // install python dependencies <br />
 > $ pip install numpy scipy matplotlib pytz GitPython bs4 xlswriter nltk <br />
-    
-### Download subjects' archives.
-    - Download all subjects from the Subjects table and save them in the cloned repository path 
-    - In our case, we save it to the Suites/_archives directory.
-    - Each subject must be stored in the group directory to which it belongs.
-    - Finally, unpacking all archives by using the unpacking.sh script.
-> $ cd Suites <br />
-> Suites$ mkdir _archives <br />
-> Suites$ cd _archives <br />
-> Suites/_archives$ mkdir Apache <br /> 
-> Suites/_archives$ cd Apache <br />
-> Suites/_archives/Apache$ wget -O CAMEL.tar "https://drive.google.com/uc?export=download&id=0B78iVP5pcTfKdEZZZnJrWmZxWjg" <br />
-> ....work recursively.... <br />
-> Suites$ mkdir data <br />
-> Suites$ ./unpacking.sh _archives data <br />
 
-    
 ### Update PATH information.
     - In the file scripts/commons/Subject.py, there are variables that stores a resource PATH information as a string.
     - The variables are Subjects.root, Subjects.root_result, and Subjects.root_feature.
