@@ -65,7 +65,7 @@ Each of the archive contains bug reports, bug report repositories that we made, 
 
 
 ### Top-level Directory Structure
-This is the top-level directory of FaultExpSuits. The directory structure is as follows:
+This is the top-level directory of FaultExpSuites. The directory structure is as follows:
  - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator, AmaLgam, Locus and more. We revised the source codes to output result with same format.
     * releases: The executable files and environment settings for each techniques get together here.
  - **analysis**: The execution result of previous techniques which is refind for scripts in forlder "scripts > analysis".
@@ -89,10 +89,10 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 
 
 ### Clone this repository
-* Clone the repository by using the following command. (We cloned into the "Suits" directory.)
+* Clone the repository by using the following command. (We cloned into the "Suites" directory.)
 > $ sudo apt-get update <br />
 > $ sudo apt-get install git <br />
-> $ git clone https://github.com/irblsensitivity/irblsensitivity.git Suits <br />
+> $ git clone https://github.com/irblsensitivity/irblsensitivity.git Suites <br />
 
 ### Install python
 * We used python 2.7. (If you have python 2.7 in your computer, please skip this section.)
@@ -108,18 +108,18 @@ All the experiments are executed in Ubuntu 16.04 LTS.
     
 ### Download subjects' archives.
     - Download all subjects from the Subjects table and save them in the cloned repository path 
-    - In our case, we save it to the Suits/_archives directory.
+    - In our case, we save it to the Suites/_archives directory.
     - Each subject must be stored in the group directory to which it belongs.
     - Finally, unpacking all archives by using the unpacking.sh script.
-> $ cd Suits <br />
-> Suits$ mkdir _archives <br />
-> Suits$ cd _archives <br />
-> Suits/_archives$ mkdir Apache <br /> 
-> Suits/_archives$ cd Apache <br />
-> Suits/_archives/Apache$ wget -O CAMEL.tar "https://drive.google.com/uc?export=download&id=0B78iVP5pcTfKdEZZZnJrWmZxWjg" <br />
+> $ cd Suites <br />
+> Suites$ mkdir _archives <br />
+> Suites$ cd _archives <br />
+> Suites/_archives$ mkdir Apache <br /> 
+> Suites/_archives$ cd Apache <br />
+> Suites/_archives/Apache$ wget -O CAMEL.tar "https://drive.google.com/uc?export=download&id=0B78iVP5pcTfKdEZZZnJrWmZxWjg" <br />
 > ....work recursively.... <br />
-> Suits$ mkdir data <br />
-> Suits$ ./unpacking.sh _archives data <br />
+> Suites$ mkdir data <br />
+> Suites$ ./unpacking.sh _archives data <br />
 
     
 ### Update PATH information.
@@ -133,19 +133,19 @@ All the experiments are executed in Ubuntu 16.04 LTS.
     - Since the provided archives have only a git repository, you need to inflate also.
     - The version information that needs to inflate exists in the Python script and provided archives.
     - The information for the inflation are in the provided scripts and archives. See a file versions.txt in any subject's data directory.
-> Suits$ cd scripts <br />
-> Suits/scripts$ python launcher_GitInflator.py <br />
+> Suites$ cd scripts <br />
+> Suites/scripts$ python launcher_GitInflator.py <br />
     
 ### Build bug repositories
     - We need to build a repository for the bug reports with pre-crawled bug reports.
     - We are already providing the result of this works in provided subject's archives.
     
-> Suits/scripts$ python launcher_repoMaker.py <br />
-> Suits/scripts$ python launcher_DupRepo.py <br />
+> Suites/scripts$ python launcher_repoMaker.py <br />
+> Suites/scripts$ python launcher_DupRepo.py <br />
     
 ### Update count information of bug and source codes.
     - The script of Counting.py makes a count information for bug and source code. 
-> Suits/scripts$ python Counting.py <br />
+> Suites/scripts$ python Counting.py <br />
     
 
 # Execute Previous Techniques
@@ -153,8 +153,8 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 * Preparing step
     - You need to set the PATHs and JavaOptions in the launcher_Tool.py file.
     - Open the file, launcher_Tool.py and check the following variables 
-    - ProgramPATH: Set the directory path which contains the release files of the IRBL techniques. (ex. u'~/Suits/techniques/releases/')
-    - OutputPATH: Set the result path to save output of each technique (ex. u'~/Suits/expresults/')
+    - ProgramPATH: Set the directory path which contains the release files of the IRBL techniques. (ex. u'~/Suites/techniques/releases/')
+    - OutputPATH: Set the result path to save output of each technique (ex. u'~/Suites/expresults/')
     - JavaOptions: Set the java command options. (ex. '-Xms512m -Xmx4000m')
     - JavaOptions_Locus: Set the java options for Locus. Because Locus need a large memory, we separated the option. (ex. '-Xms512m -Xmx4000m')
 * The script executes 6 techniques for all subjects.
@@ -170,10 +170,10 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 
 
 * Examples
-> Suits/scripts$ python launcher_Tool.py -w NewData <br />
-> Suits/scripts$ python launcher_Tool.py -w NewDataSingle -s <br />
-> Suits/scripts$ python launcher_Tool.py -w NewData_Locus -t Locus <br />
-> Suits/scripts$ python launcher_Tool.py -w NewData_CAMLE -g Apache -p CAMEL <br />
+> Suites/scripts$ python launcher_Tool.py -w NewData <br />
+> Suites/scripts$ python launcher_Tool.py -w NewDataSingle -s <br />
+> Suites/scripts$ python launcher_Tool.py -w NewData_Locus -t Locus <br />
+> Suites/scripts$ python launcher_Tool.py -w NewData_CAMLE -g Apache -p CAMEL <br />
 
 ### Install Java
 * All previous techniques are executed in Java Runtime Environment.
