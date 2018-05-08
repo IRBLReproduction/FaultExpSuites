@@ -92,7 +92,7 @@ All the experiments are executed in Ubuntu 16.04 LTS.
 * Clone the repository by using the following command. (We cloned into the "Suites" directory.)
 > $ sudo apt-get update <br />
 > $ sudo apt-get install git <br />
-> $ git clone https://github.com/irblsensitivity/irblsensitivity.git Suites <br />
+> $ git clone https://github.com/IRBLReproduction/FaultExpSuites.git Suites <br />
 
 ### Install python
 * We used python 2.7. (If you have python 2.7 in your computer, please skip this section.)
