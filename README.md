@@ -65,12 +65,10 @@ You can use this data sets following a section "Getting Started"
 | Previous | ZXing | [ZXing.tar](https://sourceforge.net/projects/irblsensitivity/files/Previous/ZXing.tar) | [https://github.com/zxing/zxing](https://github.com/zxing/zxing) |
 
 
-### Top-level Directory Structure
-This is the top-level directory of FaultExpSuites. The directory structure is as follows:
- - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator, AmaLgam, Locus and more. We revised the source codes to output result with same format. All executable files and settings are stored in a folder "techniques/releases"
+### Repository Directory Structure
+ - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator and Locus. We revised the source codes to output result with same format and improved their performance. All executable files are stored in a folder "techniques/releases"
  - **analysis**: The execution result of previous techniques which is refind for scripts in forlder "scripts > analysis".
-
- - **scripts**: Python scripts to prepare resources for Fault Localization, to execute previous techniques and to organize the results.
+ - **scripts**: Python scripts to prepare resources for Fault Localization experiment and execute previous techniques and organize the results.
  - **packing.sh**: Shell script to pack resource data per each subject.
  - **unpacking.sh**: Shell script to unpack resource data per each subject.
 
