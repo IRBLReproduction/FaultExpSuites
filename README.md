@@ -67,8 +67,7 @@ You can use this data sets following a section "Getting Started"
 
 ### Top-level Directory Structure
 This is the top-level directory of FaultExpSuites. The directory structure is as follows:
- - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator, AmaLgam, Locus and more. We revised the source codes to output result with same format.
-    * releases: The executable files and environment settings for each techniques get together here.
+ - **techniques**: This folder includes source codes and executable files of previous techniques such as BugLocator, AmaLgam, Locus and more. We revised the source codes to output result with same format. All executable files and settings are stored in a folder "techniques/releases"
  - **analysis**: The execution result of previous techniques which is refind for scripts in forlder "scripts > analysis".
 
  - **scripts**: Python scripts to prepare resources for Fault Localization, to execute previous techniques and to organize the results.
