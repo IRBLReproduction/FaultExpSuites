@@ -2,6 +2,18 @@
 FaultExpSuites is a collection of set of bug reports and git repository for Fault Localization experiment. This collection has 10,017 bug reports collected from 51 Subjects and each bug report is mapped to the source code of the corresponding version. Therefore, we can support your detail experiment as giving this version mapping information. And we also support you that you can experiment with other Subjects as offering scripts used to make this collection.
 This document explains how to use this benchmark to your experiment and how reproduce the result of our paper titled IR-based Bug Localization: Reproducibility Study on the Performance of State-of-the-Art Approaches.
 
+```
+@inproceedings{bench4bl,
+  Author = {Jaekwon Lee and Dongsun Kim and Tegawend\'e F. Bissyand\'e and Woosung Jung and Yves Le Traon},
+  Title = {IR-based Bug Localization: Reproducibility Study on the Performance of State-of-the-Art Approaches},
+  Booktitle = {Proceedings of the 27th ACM SIGSOFT International Symposium  on  Software Testing and Analysis},
+  Series = {ISSTA 2018},
+  Year = {2018},
+  doi = {10.1145/3213846.3213856},
+  pages = {1--12}
+}
+```
+
 
 ### Subjects ( Bug and Source Code Repository )
 The below table shows 5 old subjects that used in previous studies and 46 new subjects that we collected more.
