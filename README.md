@@ -1,3 +1,14 @@
+### Install python libraries
+We have 8 dependencies below:
+
+    bs4 >= 0.0.1
+    matplotlib >= 2.0.1
+    numpy >= 1.13.3
+    scipy >= 0.19.1
+    python-dateutil >= 2.6.1
+    pytz >= 2017.3
+    GitPython >= 2.1.5
+    XlsxWriter >= 0.9.8
 
 You can install using following commnad.
 > $ pip install numpy scipy matplotlib pytz GitPython bs4 xlswriter python-dateutil<br />
@@ -6,17 +17,3 @@ You can install using following commnad.
     - In the file scripts/commons/Subject.py, there are variables that stores a resource PATH information as a string.
     - The variables are Subjects.root, Subjects.root_result, and Subjects.root_feature.
     - You should change the variables according to cloned path of this repository.
-
-### Inflate the source codes.
-    - We used multiple versions of source code for the experiment. 
-    - The script, launcher_GitInflator.py clones a git repositories and inflates it into the multiple versions which are used in the experiment.
-    - Since the provided archives have only a git repository, you need to inflate also.
-    - The version information that needs to inflate exists in the Python script and provided archives.
-    - The information for the inflation are in the provided scripts and archives. See a file versions.txt in any subject's data directory.
-> Bench$ cd scripts <br />
-> Bench/scripts$ python launcher_GitInflator.py <br />
-    
-### Build bug repositories
-    - We need to build a repository for the bug reports with pre-crawled bug reports.
-    - We are already providing the result of this works in provided subject's archives.
-    
