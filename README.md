@@ -105,7 +105,7 @@ We describe scripts folder briefly and list up each step of all procedures.
 ### Clone this repository
 Clone the repository by using the following command. (We cloned into the "Bench" directory.)
 > $ git clone https://github.com/exatoa/Bench4BL.git Bench <br />
-* If you don't have git, please install git first using following commands.
+If you don't have git, please install git first using following commands.
 > $ sudo apt-get update <br />
 > $ sudo apt-get install git <br />
 
@@ -240,9 +240,8 @@ The script of Counting.py makes a count information for bug and source code. The
 > Bench/scripts$ python launcher_Tool.py -w NewData_CAMLE -g Apache -p CAMEL <br />
 
 ### Install Java
-* All previous techniques are executed in Java Runtime Environment.
-* If you have java in your computer, please skip this section.
-> // install java <br />
+All previous techniques are executed in Java Runtime Environment. If you have java in your computer, please skip this section.
+
 > $ sudo apt-get install python-software-properties <br />
 > $ sudo add-apt-repository ppa:webupd8team/java <br />
 > $ sudo apt-get update <br />
@@ -286,7 +285,7 @@ The script of Counting.py makes a count information for bug and source code. The
 # Previous Techniques Load on Eclipse
 We changed previous techniques on Eclipse. But we didn't include eclipse environment files (.metadata folder, .project and .classpath file) in each previous techniques folders.
  
- So, If you want to load these techniques on Eclipse, please follow next sequence.
+So, If you want to load these techniques on Eclipse, please follow next sequence.
  
  - Open Eclipse
  - Make a 'techniques' folder into workplace of Eclipse. Then .metadata folder will be created in 'techniques' folder.
