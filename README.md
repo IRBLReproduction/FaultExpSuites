@@ -88,18 +88,19 @@ You can use this data sets following a section "Getting Started"
 
 
 # Getting Started
-This section describes all procedures of use this benchmarks. The procedures include setting experiment environment, creating bug repository and checking out source codes of specific versions.
-We explain all procedures base on Ubuntu 16.04 LTS because all the experiments are executed in this environment.
+This section describes all procedures of use this benchmarks. The procedures include setting experiment environment, creating bug repository and checking out source codes of specific versions. The step of creating bug repository can be skipped when you use archives that you downloaded from the above table.
+All the commands are written base on Ubuntu 16.04 LTS because all the experiments are executed in this environment.
 
 
-### Scripts Directory Structure
+```
+#### Scripts Directory Structure
 - **repository**: Scripts to prepare the resources to execute each technique.
 - **results**: Scripts to collect the execution results of each technique and export to Excel.
 - **analysis**: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;We applied Mann-Whitney U test, Pearson correlation and so on.
 - **commons**: Scripts to managing subjects and common functions.
 - **utils**: Personal libraries for experiments.
-
+```
 
 ### Clone this repository
 * Clone the repository by using the following command. (We cloned into the "Suites" directory.)
