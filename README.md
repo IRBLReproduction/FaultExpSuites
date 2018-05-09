@@ -90,7 +90,7 @@ You can use this data sets following a section "Getting Started"
 # Getting Started
 This section describes all procedures of use this benchmarks. The procedures include setting experiment environment, creating bug repository and checking out source codes of specific versions. The step of creating bug repository can be skipped when you use archives that you downloaded from the above table.
 All the commands are written base on Ubuntu 16.04 LTS because all the experiments are executed in this environment.
-We describe scripts folder briefly and list up each steps of all procedures.
+We describe scripts folder briefly and list up each step of all procedures.
 
 
     ## Scripts Directory Structure ##
@@ -103,7 +103,7 @@ We describe scripts folder briefly and list up each steps of all procedures.
 
 
 ### Clone this repository
-* Clone the repository by using the following command. (We cloned into the "Bench" directory.)
+Clone the repository by using the following command. (We cloned into the "Bench" directory.)
 > $ git clone https://github.com/exatoa/Bench4BL.git Bench <br />
 * If you don't have git, please install git first using following commands.
 > $ sudo apt-get update <br />
@@ -176,7 +176,7 @@ In the file scripts/commons/Subject.py, there are variables that stores a resour
 
 ### Version Information
 We selected specific versions for each Subject and saved into versions.txt according to the Subject folder. The file is in JSON format and we used a dictionary to save information. A top-level key means a Subject name which is correspond written in Subjects.py. The selected versions are also listed using dictionary structure. The key text is version name which means you want to represent it and the value test is tag name written in git repository.
-For example, Let you want to store CODEC Subject's version information. You could write like below JSON text.
+For example, Let you want to store CODEC Subject's version information. You could write like below JSON text and save it in 'Bench/data/Commons/CODEC/versions.txt'. We offer the selected versions in the archieves. If you want to use versions that we selected, you don't need to change version information files.
 
     {
         "CODEC":{
@@ -195,25 +195,22 @@ For example, Let you want to store CODEC Subject's version information. You coul
 
 
 ### Inflate the source codes.
-- We used multiple versions of source code for the experiment. 
-- The script launcher_GitInflator.py clones a git repositories and inflates it into the multiple versions which are used in the experiment.
-- Since the provided archives have only a git repository, you need to inflate also.
-- The version information that needs to inflate exists in the Python script and provided archives.
-- The information for the inflation are in the provided scripts and archives. See a file versions.txt in any subject's data directory.
+We used multiple versions of source code for the experiment. Since the provided archives have only a git repository, you need to inflate also. The script launcher_GitInflator.py clones a git repositories and inflates it into the multiple versions which you selected.
 > Bench$ cd scripts <br />
 > Bench/scripts$ python launcher_GitInflator.py <br />
 
     
 ### Build bug repositories
-We need to build a repository for the bug reports with pre-crawled bug reports. We are already providing the result of this works in provided subject's archives.
+We need to build a repository for the bug reports with pre-crawled bug reports. The bug repository is in XML format and includes bug data which is used in the experiments. launcher_repoMaker.py makes the bug repository that containing entire crawled bug reports information and bug repositories that stores bug reports according to the mapped version. But, since we already offer the result of this step in provided subject's archives, use this script if you want to update the bug repositories. launcher_DupRepo.py creates a bug repository file that contains bug information merged duplicate bug reports.
 
 > Bench/scripts$ python launcher_repoMaker.py <br />
 > Bench/scripts$ python launcher_DupRepo.py <br />
+
     
 ### Update count information of bug and source codes.
-The script of Counting.py makes a count information for bug and source code. 
+The script of Counting.py makes a count information for bug and source code. The result will be stored bugs.txt, sources.txt and answers.txt in each subject's folder.
 > Bench/scripts$ python Counting.py <br />
-    
+
 
 # Execute Previous Techniques
 * To get the result of each technique, you can use scripts/launcher_Tool.py.
