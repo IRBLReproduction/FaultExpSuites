@@ -1,5 +1,5 @@
-# FaultExpSuites
-FaultExpSuites is a collection of set of bug reports and git repository for Fault Localization experiment. This collection has 10,017 bug reports collected from 51 Subjects and each bug report is mapped to the source code of the corresponding version. Therefore, we can support your detail experiment as giving this version mapping information. And we also support you that you can experiment with other Subjects as offering scripts used to make this collection.
+# Bench4BL
+Bench4BL is a collection of set of bug reports and git repository for Fault Localization experiment. This collection has 10,017 bug reports collected from 51 Subjects and each bug report is mapped to the source code of the corresponding version. Therefore, we can support your detail experiment as giving this version mapping information. And we also support you that you can experiment with other Subjects as offering scripts used to make this collection.
 This document explains how to use this benchmark to your experiment and how reproduce the result of our paper titled IR-based Bug Localization: Reproducibility Study on the Performance of State-of-the-Art Approaches.
 
 ```
@@ -90,39 +90,40 @@ You can use this data sets following a section "Getting Started"
 # Getting Started
 This section describes all procedures of use this benchmarks. The procedures include setting experiment environment, creating bug repository and checking out source codes of specific versions. The step of creating bug repository can be skipped when you use archives that you downloaded from the above table.
 All the commands are written base on Ubuntu 16.04 LTS because all the experiments are executed in this environment.
-
+We describe scripts folder briefly and list up each steps of all procedures.
 
 ```
-#### Scripts Directory Structure
-- **repository**: Scripts to prepare the resources to execute each technique.
-- **results**: Scripts to collect the execution results of each technique and export to Excel.
-- **analysis**: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;We applied Mann-Whitney U test, Pearson correlation and so on.
-- **commons**: Scripts to managing subjects and common functions.
-- **utils**: Personal libraries for experiments.
+## Scripts Directory Structure ##
+- repository: Scripts to prepare the resources to execute each technique.
+- results: Scripts to collect the execution results of each technique and export to Excel.
+- analysis: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
+             We applied Mann-Whitney U test, Pearson correlation and so on.
+- commons: Scripts to managing subjects and common functions.
+- utils: Personal libraries for experiments.
 ```
 
 ### Clone this repository
-* Clone the repository by using the following command. (We cloned into the "Suites" directory.)
+* Clone the repository by using the following command. (We cloned into the "Bench" directory.)
+> $ git clone https://github.com/exatoa/Bench4BL.git Bench <br />
+* If you don't have git, please install git first using following commands.
 > $ sudo apt-get update <br />
 > $ sudo apt-get install git <br />
-> $ git clone https://github.com/IRBLReproduction/FaultExpSuites.git Suites <br />
 
     
 ### Download subjects' archives.
 * Download all subjects from the Subjects table and save them in the cloned repository path 
-* In our case, we save it to the Suites/_archives directory.
+* In our case, we save it to the Bench/_archives directory.
 * Each subject must be stored in the group directory to which it belongs.
 * Finally, unpacking all archives by using the unpacking.sh script.
-> $ cd Suites <br />
-> Suites$ mkdir _archives <br />
-> Suites$ cd _archives <br />
-> Suites/_archives$ mkdir Apache <br /> 
-> Suites/_archives$ cd Apache <br />
-> Suites/_archives/Apache$ wget -O CAMEL.tar "https://drive.google.com/uc?export=download&id=0B78iVP5pcTfKdEZZZnJrWmZxWjg" <br />
+> $ cd Bench <br />
+> Bench$ mkdir _archives <br />
+> Bench$ cd _archives <br />
+> Bench/_archives$ mkdir Apache <br /> 
+> Bench/_archives$ cd Apache <br />
+> Bench/_archives/Apache$ wget -O CAMEL.tar "https://drive.google.com/uc?export=download&id=0B78iVP5pcTfKdEZZZnJrWmZxWjg" <br />
 > ....work recursively.... <br />
-> Suites$ mkdir data <br />
-> Suites$ ./unpacking.sh _archives data <br />
+> Bench$ mkdir data <br />
+> Bench$ ./unpacking.sh _archives data <br />
 
 
 ### Install python
@@ -148,19 +149,19 @@ All the commands are written base on Ubuntu 16.04 LTS because all the experiment
     - Since the provided archives have only a git repository, you need to inflate also.
     - The version information that needs to inflate exists in the Python script and provided archives.
     - The information for the inflation are in the provided scripts and archives. See a file versions.txt in any subject's data directory.
-> Suites$ cd scripts <br />
-> Suites/scripts$ python launcher_GitInflator.py <br />
+> Bench$ cd scripts <br />
+> Bench/scripts$ python launcher_GitInflator.py <br />
     
 ### Build bug repositories
     - We need to build a repository for the bug reports with pre-crawled bug reports.
     - We are already providing the result of this works in provided subject's archives.
     
-> Suites/scripts$ python launcher_repoMaker.py <br />
-> Suites/scripts$ python launcher_DupRepo.py <br />
+> Bench/scripts$ python launcher_repoMaker.py <br />
+> Bench/scripts$ python launcher_DupRepo.py <br />
     
 ### Update count information of bug and source codes.
     - The script of Counting.py makes a count information for bug and source code. 
-> Suites/scripts$ python Counting.py <br />
+> Bench/scripts$ python Counting.py <br />
     
 
 # Execute Previous Techniques
@@ -168,8 +169,8 @@ All the commands are written base on Ubuntu 16.04 LTS because all the experiment
 * Preparing step
     - You need to set the PATHs and JavaOptions in the launcher_Tool.py file.
     - Open the file, launcher_Tool.py and check the following variables 
-    - ProgramPATH: Set the directory path which contains the release files of the IRBL techniques. (ex. u'~/Suites/techniques/releases/')
-    - OutputPATH: Set the result path to save output of each technique (ex. u'~/Suites/expresults/')
+    - ProgramPATH: Set the directory path which contains the release files of the IRBL techniques. (ex. u'~/Bench/techniques/releases/')
+    - OutputPATH: Set the result path to save output of each technique (ex. u'~/Bench/expresults/')
     - JavaOptions: Set the java command options. (ex. '-Xms512m -Xmx4000m')
     - JavaOptions_Locus: Set the java options for Locus. Because Locus need a large memory, we separated the option. (ex. '-Xms512m -Xmx4000m')
 * The script executes 6 techniques for all subjects.
@@ -185,10 +186,10 @@ All the commands are written base on Ubuntu 16.04 LTS because all the experiment
 
 
 * Examples
-> Suites/scripts$ python launcher_Tool.py -w NewData <br />
-> Suites/scripts$ python launcher_Tool.py -w NewDataSingle -s <br />
-> Suites/scripts$ python launcher_Tool.py -w NewData_Locus -t Locus <br />
-> Suites/scripts$ python launcher_Tool.py -w NewData_CAMLE -g Apache -p CAMEL <br />
+> Bench/scripts$ python launcher_Tool.py -w NewData <br />
+> Bench/scripts$ python launcher_Tool.py -w NewDataSingle -s <br />
+> Bench/scripts$ python launcher_Tool.py -w NewData_Locus -t Locus <br />
+> Bench/scripts$ python launcher_Tool.py -w NewData_CAMLE -g Apache -p CAMEL <br />
 
 ### Install Java
 * All previous techniques are executed in Java Runtime Environment.
