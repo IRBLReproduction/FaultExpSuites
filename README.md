@@ -92,15 +92,15 @@ This section describes all procedures of use this benchmarks. The procedures inc
 All the commands are written base on Ubuntu 16.04 LTS because all the experiments are executed in this environment.
 We describe scripts folder briefly and list up each steps of all procedures.
 
-```
-## Scripts Directory Structure ##
-- repository: Scripts to prepare the resources to execute each technique.
-- results: Scripts to collect the execution results of each technique and export to Excel.
-- analysis: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
-             We applied Mann-Whitney U test, Pearson correlation and so on.
-- commons: Scripts to managing subjects and common functions.
-- utils: Personal libraries for experiments.
-```
+
+    ## Scripts Directory Structure ##
+    - repository: Scripts to prepare the resources to execute each technique.
+    - results: Scripts to collect the execution results of each technique and export to Excel.
+    - analysis: Scripts to analysis for the result of each technique and features extracted from resources. <br /> 
+                 We applied Mann-Whitney U test, Pearson correlation and so on.
+    - commons: Scripts to managing subjects and common functions.
+    - utils: Personal libraries for experiments.
+
 
 ### Clone this repository
 * Clone the repository by using the following command. (We cloned into the "Bench" directory.)
