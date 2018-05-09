@@ -15,7 +15,7 @@ This document explains how to use this benchmark to your experiment and how repr
 ```
 
 
-### Subjects ( Bug and Source Code Repository )
+### Subjects ( Bug reports and Source Code Repositories )
 The below table shows 5 old subjects that used in previous studies and 46 new subjects that we collected more.
 The subjects classified into 6 groups to manage them (The Previous group is old subjects).
 Each of the archive contains bug reports, bug report repositories that we refined, cloned git repository and metadata of them that we made. If you need a recent git repository, please clone again through a link in Git Repository column.
