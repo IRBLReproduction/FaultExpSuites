@@ -129,7 +129,6 @@ The last command unpacks all archive files in '_archives' folder into 'data' fol
 
 ### Install python
 We used python 2.7. (If you have python 2.7 in your computer, please skip this section.)
-> // install python <br />
 > $ sudo add-apt-repository ppa:fkrull/deadsnakes <br />
 > $ sudo apt-get update <br />
 > $ sudo apt-get install python2.7 python <br />
@@ -150,29 +149,69 @@ We have 8 dependencies below:
 You can install using following commnad.
 > $ pip install numpy scipy matplotlib pytz GitPython bs4 xlswriter python-dateutil<br />
 
-### Update PATH information.
-    - In the file scripts/commons/Subject.py, there are variables that stores a resource PATH information as a string.
-    - The variables are Subjects.root, Subjects.root_result, and Subjects.root_feature.
-    - You should change the variables according to cloned path of this repository.
+### Update PATH information (Editing script code)
+In the file scripts/commons/Subject.py, there are variables that stores a resource PATH information as a string and subject informations. To use our scripts, you should change the variables properly.
+
+    class Subjects(object):
+        ...
+        root = u'/mnt/exp/Bug/data/'
+        root_result = u'/mnt/exp/Bug/expresults/'
+        techniques = ['BugLocator', 'BRTracer', 'BLUiR', 'AmaLgam', 'BLIA', 'Locus']
+        groups = ['Apache', 'Commons', 'JBoss', 'Wildfly', 'Spring']
+        projects = {
+            'Apache':[u'CAMEL', u'HBASE', u'HIVE'],
+            'Commons':[u'CODEC', u'COLLECTIONS', u'COMPRESS', u'CONFIGURATION', u'CRYPTO', u'IO', u'LANG', u'MATH', u'WEAVER',u'CSV'],
+            'JBoss':[u'ENTESB', u'JBMETA'],
+            'Wildfly':[u'ELY', u'WFARQ', u'WFCORE', u'WFLY', u'WFMP',u'SWARM'],
+            'Spring':[U'AMQP', U'ANDROID', U'BATCH', U'BATCHADM', U'DATACMNS', U'DATAGRAPH', U'DATAJPA', U'DATAMONGO', U'DATAREDIS', U'DATAREST', U'LDAP', U'MOBILE', U'ROO', U'SEC', U'SECOAUTH', U'SGF', U'SHDP', U'SHL', U'SOCIAL', U'SOCIALFB', U'SOCIALLI', U'SOCIALTW', U'SPR', U'SWF', U'SWS']
+        }
+        ...
+
+* root : The directory that you unpacked downloaded archives.
+* root_result : The directory that the previous techniques' result will be stored.
+* techniques : The previous technique names.
+* groups : The group names that you want to test.
+* projects : The subject names that you want to test. Each subject name should be classified into specific group name.
+
+
+### Version Information
+We selected specific versions for each Subject and saved into versions.txt according to the Subject folder. The file is in JSON format and we used a dictionary to save information. A top-level key means a Subject name which is correspond written in Subjects.py. The selected versions are also listed using dictionary structure. The key text is version name which means you want to represent it and the value test is tag name written in git repository.
+For example, Let you want to store CODEC Subject's version information. You could write like below JSON text.
+
+    {
+        "CODEC":{
+                "1.4":"CODEC_1_4",
+                "1.5":"commons-codec-1.5",
+                "1.6":"1_6",
+                "1.7":"1.7",
+                "1.1":"CODEC_1_1",
+                "1.2":"CODEC_1_2",
+                "1.3":"CODEC_1_3",
+                "1.8":"1.8",
+                "1.9":"1.9",
+                "1.10":"1.10"
+        }
+    }
+
 
 ### Inflate the source codes.
-    - We used multiple versions of source code for the experiment. 
-    - The script, launcher_GitInflator.py clones a git repositories and inflates it into the multiple versions which are used in the experiment.
-    - Since the provided archives have only a git repository, you need to inflate also.
-    - The version information that needs to inflate exists in the Python script and provided archives.
-    - The information for the inflation are in the provided scripts and archives. See a file versions.txt in any subject's data directory.
+- We used multiple versions of source code for the experiment. 
+- The script launcher_GitInflator.py clones a git repositories and inflates it into the multiple versions which are used in the experiment.
+- Since the provided archives have only a git repository, you need to inflate also.
+- The version information that needs to inflate exists in the Python script and provided archives.
+- The information for the inflation are in the provided scripts and archives. See a file versions.txt in any subject's data directory.
 > Bench$ cd scripts <br />
 > Bench/scripts$ python launcher_GitInflator.py <br />
+
     
 ### Build bug repositories
-    - We need to build a repository for the bug reports with pre-crawled bug reports.
-    - We are already providing the result of this works in provided subject's archives.
-    
+We need to build a repository for the bug reports with pre-crawled bug reports. We are already providing the result of this works in provided subject's archives.
+
 > Bench/scripts$ python launcher_repoMaker.py <br />
 > Bench/scripts$ python launcher_DupRepo.py <br />
     
 ### Update count information of bug and source codes.
-    - The script of Counting.py makes a count information for bug and source code. 
+The script of Counting.py makes a count information for bug and source code. 
 > Bench/scripts$ python Counting.py <br />
     
 
