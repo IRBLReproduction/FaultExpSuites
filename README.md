@@ -111,11 +111,11 @@ We describe scripts folder briefly and list up each steps of all procedures.
 
     
 ### Download subjects' archives.
-* Download all subjects from the Subjects table and save them in the cloned repository path 
-* In our case, we save it to the Bench/_archives directory.
-* Each subject must be stored in the group directory to which it belongs.
-* Finally, unpacking all archives by using the unpacking.sh script.
-* The last command using unpacking.sh unpacks all archive files in '_archives' folder into 'data' folder as keeping the original directory structures.
+Download all subjects from the Subjects table and save them in the cloned repository path 
+In our case, we save it to the Bench/_archives directory.
+Each subject must be stored in the group directory to which it belongs.
+Finally, unpacking all archives by using the unpacking.sh script.
+The last command using unpacking.sh unpacks all archive files in '_archives' folder into 'data' folder as keeping the original directory structures.
 > $ cd Bench <br />
 > Bench$ mkdir _archives <br />
 > Bench$ cd _archives <br />
